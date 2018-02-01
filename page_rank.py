@@ -3,7 +3,7 @@
 
 import csv
 
-# read hollins.dat
+# Read hollins.dat
 with open("hollins.dat", "r") as data:
     read = csv.reader(data, delimiter = ' ', skipinitialspace = True)
     columns = next(read)
@@ -12,7 +12,7 @@ with open("hollins.dat", "r") as data:
     number_of_edges = int(columns[1])
     links = {}
 
-    # variables for page_rank
+    # Variables for page_rank function
     transition_matrix = [ [0] * number_of_nodes for x in range(number_of_nodes)]
     initial_state_vector = []
     damping = .85	
@@ -44,7 +44,7 @@ def page_rank(trans_matrix, init_state_vector, damp, inc_links):
     length = len(init_state_vector)
     next_state_vector = [0] * length
 
-    while iterations < 100:	# iterate 100 times to achieve final PageRank
+    while iterations < 100:	# Iterate 100 times to achieve final PageRank
         for i in range(length):
             temp_next_state_vector = 0
             for j in inc_links[i]:
@@ -57,7 +57,7 @@ def page_rank(trans_matrix, init_state_vector, damp, inc_links):
 
 final_rankings = page_rank(transition_matrix, initial_state_vector, damping, incoming_links)
 
-# sort and write final_rankings to text file
+# Sort and write final_rankings to text file
 with open("final_rankings.txt", "w") as file:
     sorted_rankings = []
 
