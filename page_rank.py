@@ -13,7 +13,7 @@ with open("hollins.dat", "r") as data:
     links = {}
 
     # Variables for page_rank function
-    transition_matrix = [ [0] * number_of_nodes for x in range(number_of_nodes)]
+    transition_matrix = [[0] * number_of_nodes for x in range(number_of_nodes)]
     initial_state_vector = []
     damping = .85	
     incoming_links = [set() for x in range(number_of_nodes)]
@@ -40,6 +40,10 @@ with open("hollins.dat", "r") as data:
             transition_matrix[i][j] = 1 / outgoing_links[j]
 
 def page_rank(trans_matrix, init_state_vector, damp, inc_links):
+    """Implements the PageRank algorithm.
+
+    Takes initial website dataset and returns the final rankings.
+    """
     iterations = 0
     length = len(init_state_vector)
     next_state_vector = [0] * length
