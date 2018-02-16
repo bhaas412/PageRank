@@ -1,4 +1,5 @@
 # PageRank
+
 Implementation of Google's PageRank algorithm on the given dataset "hollins.dat" in Python.
 
 The first line in "hollins.dat" represents the number of nodes (web pages) V and the number of edges (hyperlinks) E.
